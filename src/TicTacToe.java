@@ -12,7 +12,7 @@ import java.util.Scanner; //allows me to take in input
  * 
  * @author adilettad
  */
-public class TicTactToe {
+public class TicTacToe {
 
 	public static void main(String[] args) {
 		int[][] gameBoard = new int[3][3]; // 3x3 array for the game board
