@@ -42,6 +42,7 @@ public class TicTacToe {
 
 	public static int[][] Tic(int[][] gameBoard, Boolean player1) {
 		// TODO: subtract 1 from inputs so they adjust to array's 0 start point
+		// TODO: Check if the spot has already been taken so you can't overwrite
 		Scanner xi = new Scanner(System.in); // store the x coordinate
 		Scanner yi = new Scanner(System.in); // store the y coordinate
 		System.out.println("Please enter your desired X coordinate");
@@ -67,43 +68,46 @@ public class TicTacToe {
 				if (last == current && last != 0) {
 					counter++; // keep track of how many in a row we've found
 				}
-				if (counter == 3) {
+				if (counter == 2) { 
 					System.out.println("You won!");
 					return false;
 				}
 				last = current;
 			}
 		}
+		counter = 0; //reset the counter back to 0 before the next check
 		for (int y = 0; y < 3; y++) { // check for a horizontal pattern
 			for (int x = 0; x < 3; x++) {
 				current = gameBoard[x][y];
 				if (last == current && last != 0) {
 					counter++;
 				}
-				if (counter == 3) {
+				if (counter == 2) {
 					System.out.println("You won!");
 					return false;
 				}
 				last = current;
 			}
 		}
+		counter = 0; //reset the counter back to 0 before the next check
 		for (int y = 0; y < 3; y++) { // check for a diagnal down pattern
 			current = gameBoard[y][y];
 			if (last == current && last != 0) {
 				counter++;
 			}
-			if (counter == 3) {
+			if (counter == 2) {
 				System.out.println("You won!");
 				return false;
 			}
 			last = current;
 		}
+		counter = 0; //reset the counter back to 0 before the next check
 		for (int x = 0; x < 3; x++) { // check for a diagnal up pattern
 			current = gameBoard[x][yDiag];
 			if (last == current && last != 0) {
 				counter++;
 			}
-			if (counter == 3) {
+			if (counter == 2) {
 				System.out.println("You won!");
 				return false;
 			}
